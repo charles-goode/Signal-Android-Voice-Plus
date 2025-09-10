@@ -42,6 +42,7 @@ class VoiceNotePlayerView @JvmOverloads constructor(
   private val durationView: TextView
   private val speedView: PlaybackSpeedToggleTextView
   private val closeButton: View
+  private val jumpBackButton: View
 
   private var lastState: State? = null
   private var playerVisible: Boolean = false
@@ -58,6 +59,7 @@ class VoiceNotePlayerView @JvmOverloads constructor(
     durationView = findViewById(R.id.voice_note_player_duration)
     speedView = findViewById(R.id.voice_note_player_speed)
     closeButton = findViewById(R.id.voice_note_player_close)
+    jumpBackButton = findViewById(R.id.voice_note_back_5)
 
     infoView.isSelected = true
     infoView.doOnTextChanged { _, _, _, _ ->
@@ -88,6 +90,13 @@ class VoiceNotePlayerView @JvmOverloads constructor(
     closeButton.setOnClickListener {
       lastState?.let {
         listener?.onCloseRequested(it.uri)
+      }
+    }
+
+    jumpBackButton.setOnClickListener {
+      lastState?.let {
+        val progress = (it.playbackPosition - 5.0) / it.playbackDuration
+        listener?.onPlay(it.uri, it.messageId, progress)
       }
     }
 

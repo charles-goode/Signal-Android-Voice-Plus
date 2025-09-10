@@ -21,8 +21,8 @@
 
     <org.thoughtcrime.securesms.components.emoji.EmojiTextView
         android:id="@+id/voice_note_player_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
         android:ellipsize="marquee"
         android:gravity="center_vertical"
         android:marqueeRepeatLimit="marquee_forever"
@@ -32,10 +32,8 @@
         android:textColor="@color/signal_colorOnSurface"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/voice_note_player_duration"
-        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toStartOf="@+id/voice_note_player_duration"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/voice_note_player_play_pause_toggle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Miles Morales Admiration Station" />
 
@@ -48,27 +46,26 @@
         android:paddingStart="4dp"
         android:paddingEnd="13dp"
         android:singleLine="true"
-        android:textColor="@color/signal_colorOnSurface"
         android:textAppearance="@style/Signal.Text.BodyMedium"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/signal_colorOnSurface"
+        app:layout_constraintBottom_toBottomOf="@+id/voice_note_player_info"
         app:layout_constraintEnd_toStartOf="@id/voice_note_player_speed_touch_target"
-        app:layout_constraintStart_toEndOf="@id/voice_note_player_info"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/voice_note_player_info"
         tools:text="· 1:00" />
 
     <FrameLayout
         android:id="@+id/voice_note_player_speed_touch_target"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
         android:background="?selectableItemBackground"
         android:contentDescription="@string/VoiceNotePlayerView__change_voice_message_speed"
         android:minWidth="36dp"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/voice_note_player_info"
         app:layout_constraintEnd_toStartOf="@id/voice_note_player_close"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/voice_note_player_info"
+        app:layout_constraintVertical_bias="0.499">
 
         <org.thoughtcrime.securesms.components.PlaybackSpeedToggleTextView
             android:id="@+id/voice_note_player_speed"
@@ -99,5 +96,18 @@
         app:layout_constraintTop_toTopOf="@id/voice_note_player_info"
         app:srcCompat="@drawable/ic_x_20"
         app:tint="@color/signal_colorOnSurface" />
+
+    <ImageView
+        android:id="@+id/voice_note_back_5"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:tint="@color/signal_icon_tint_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/voice_note_player_info"
+        app:layout_constraintStart_toEndOf="@+id/voice_note_player_play_pause_toggle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/media3_icon_skip_back_5" />
 
 </merge>

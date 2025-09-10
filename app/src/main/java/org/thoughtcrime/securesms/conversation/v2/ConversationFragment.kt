@@ -4589,6 +4589,10 @@ class ConversationFragment :
           .addTo(disposables)
       }
     }
+
+    override fun onJumpBack(uri: Uri, seconds: Int) {
+      getVoiceNoteMediaController().seekToPosition()
+    }
   }
 
   override fun onDoubleTapEditEducationSheetNext(conversationMessage: ConversationMessage) {
